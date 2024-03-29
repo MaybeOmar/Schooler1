@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/schooler"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SchoolManagementSystem"
+        tools:targetApi="31">
+        <activity
+            android:name=".AddCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAssignmentRV"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAssignments"
+            android:exported="false" />
+        <activity
+            android:name=".AssignmentRecyclerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadAssignment"
+            android:exported="false" />
+        <activity
+            android:name=".EditAssignment"
+            android:exported="false" />
+        <activity
+            android:name=".SubjectWorkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewMaterialRV"
+            android:exported="false" />
+        <activity
+            android:name=".ViewSubjectMaterial"
+            android:exported="false" />
+        <activity
+            android:name=".UploadSubjectMaterial"
+            android:exported="false" />
+        <activity
+            android:name=".MaterialRecyclerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PDFInfo"
+            android:exported="false" />
+        <activity
+            android:name=".login_page"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
+            android:name=".settings"
+            android:exported="false" />
+        <activity
+            android:name=".teacher_home_page"
+            android:exported="false" />
+        <activity
+            android:name=".parent_home_page"
+            android:exported="false" />
+        <activity
+            android:name=".admin_home_page"
+            android:exported="false" />
+        <activity
+            android:name=".EditMaterial"
+            android:exported="false" />
+        <activity
+            android:name=".cardview"
+            android:exported="false" />
+        <activity
+            android:name=".student_home_page"
+            android:exported="false" />
+        <activity
+            android:name=".Registeration"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

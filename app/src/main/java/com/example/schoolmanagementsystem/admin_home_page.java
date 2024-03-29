@@ -1,0 +1,94 @@
+package com.example.schoolmanagementsystem;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+
+
+public class admin_home_page extends AppCompatActivity {
+    private List<Model> modelList;
+    RecyclerView RV;
+    Adapter adapter;
+    Intent intentprofile,intentsettings;
+    Button profile_btn,settings_btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_home_page);
+
+        modelList = new ArrayList<>();
+        modelList.add(new Model(R.drawable.addaccount, Registeration.class,"Create Account"));
+        modelList.add(new Model(R.drawable.deleteaccount, student_home_page.class,"Delete Account"));
+        modelList.add(new Model(R.drawable.announcement, login_page.class,"Announcements"));
+        modelList.add(new Model(R.drawable.subjectwork1, SubjectWorkActivity.class,"Class Work"));
+        modelList.add(new Model(R.drawable.a_attend, login_page.class,"Attendance"));
+        modelList.add(new Model(R.drawable.a_exit_permits, login_page.class,"Exit Permits"));
+        modelList.add(new Model(R.drawable.tuitionfees, login_page.class,"Tuition Fees"));
+
+
+
+        //recyclerView
+        RV = findViewById(R.id.id_recyclerview);
+        RV.setLayoutManager(new GridLayoutManager(this,2));
+
+
+        adapter = new Adapter(modelList);
+        RV.setAdapter(adapter);
+
+
+
+
+        //settings button
+        settings_btn=findViewById(R.id.settings_button);
+        settings_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentsettings = new Intent(admin_home_page.this,settings.class);
+                startActivity(intentsettings);
+            }
+        });
+
+
+//profile button
+
+        profile_btn=findViewById(R.id.profile_button);
+        profile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intentprofile = new Intent(admin_home_page.this,profile.class);
+                startActivity(intentprofile);
+            }
+        });
+
+
+
+
+
+        //exit bar button
+       // logout_btn = findViewById(R.id.logout_button);
+      //  logout_btn.setOnClickListener(new View.OnClickListener()
+
+       // {
+      //      @Override
+       //     public void onClick(View view)
+          //  {
+            //    finish();
+          //  }
+      //  });
+
+
+
+    }
+
+
+}
