@@ -12,7 +12,7 @@ import java.util.List;
 import android.widget.ImageButton;
 
 
-
+//"hello my name is yehya im 20 years old"
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<Model> data;
 
