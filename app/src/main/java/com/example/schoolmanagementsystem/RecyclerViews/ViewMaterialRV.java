@@ -1,21 +1,22 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.RecyclerViews;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
 
+import com.example.schoolmanagementsystem.R;
+import com.example.schoolmanagementsystem.adapters.StudentRVMaterialAdapter;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class AssignmentRecyclerViewActivity extends AppCompatActivity implements TeacherRVAssignmentAdapter.RefreshListener, TeacherRVMaterialAdapter.RefreshListener {
+public class ViewMaterialRV extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private TeacherRVAssignmentAdapter adapter;
+    private StudentRVMaterialAdapter adapter;
     private FirebaseStorage storage;
     private StorageReference storageRef;
     private ArrayList<String> fileList;
@@ -24,17 +25,18 @@ public class AssignmentRecyclerViewActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assignment_recycler_view);
-        recyclerView = findViewById(R.id.recyclerView);
+        setContentView(R.layout.activity_view_material_rv);
+        recyclerView = findViewById(R.id.recyclerview1);
         storage = FirebaseStorage.getInstance();
         fileList = new ArrayList<>();
         urls = new ArrayList<>();
 
-        adapter = new TeacherRVAssignmentAdapter( AssignmentRecyclerViewActivity.this,  fileList,  urls,  this);
+        adapter = new StudentRVMaterialAdapter(ViewMaterialRV.this, fileList, urls);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Assignments");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Material");
         storageReference.child(System.currentTimeMillis() + "").getDownloadUrl().addOnSuccessListener(uri -> {
             // Got the download URL for 'users/me/profile.png'
         }).addOnFailureListener(exception -> {
@@ -50,7 +52,9 @@ public class AssignmentRecyclerViewActivity extends AppCompatActivity implements
                     String url = uri.toString();
 
                     // Update the adapter
-                    ((TeacherRVAssignmentAdapter) Objects.requireNonNull(recyclerView.getAdapter())).Update(fileName, url);
+                    // Update the adapter
+                    ((StudentRVMaterialAdapter) Objects.requireNonNull(recyclerView.getAdapter())).Update(fileName, url);
+
                 }).addOnFailureListener(exception -> {
                     // Handle any errors
                 });
@@ -58,11 +62,5 @@ public class AssignmentRecyclerViewActivity extends AppCompatActivity implements
         }).addOnFailureListener(e -> {
             // Handle any errors
         });
-    }
-    @Override
-    public void onRefresh() {
-        // Add logic to refresh the activity here
-        // For example, you can recreate the activity or reload data
-        recreate(); // This recreates the activity
     }
 }

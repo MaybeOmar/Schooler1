@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.schoolmanagementsystem.RecyclerViews.MaterialRecyclerViewActivity;
+
 public class EditMaterial extends AppCompatActivity {
 
     Button upload,fetch,profile_btn,settings_btn;

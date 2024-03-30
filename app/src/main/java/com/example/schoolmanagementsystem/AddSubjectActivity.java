@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddCourseActivity extends AppCompatActivity {
+public class AddSubjectActivity extends AppCompatActivity {
     private Spinner educationYearSp, semesterSp;
     private Spinner courseTeacherSp,courseTitleSP;
     private EditText courseBatchET;
@@ -34,7 +35,7 @@ public class AddCourseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course);
+        setContentView(R.layout.activity_add_subject);
         educationYearSp=findViewById(R.id.educationYearSp);
         courseTeacherSp=findViewById(R.id.courseTeacherSp);
         courseTitleSP=findViewById(R.id.courseTitleSp);
@@ -42,9 +43,9 @@ public class AddCourseActivity extends AppCompatActivity {
         addCourseBtn=findViewById(R.id.addCourseBtn);
 
         Intent intent=getIntent();
-        intentedDep=intent.getStringExtra("CDEPT");
-        intentedShift=intent.getStringExtra("CSHIFT");
+        intentedDep=intent.getStringExtra("eduYear");
         //SweetToast.success(getApplicationContext(),intentedShift);
+        Toast.makeText(AddSubjectActivity.this,intentedDep,Toast.LENGTH_SHORT).show();
         teacherList=new ArrayList<>();
         batchList=new ArrayList<>();
         teacherIDList=new ArrayList<>();
@@ -53,7 +54,7 @@ public class AddCourseActivity extends AppCompatActivity {
 
         courseRef= FirebaseDatabase.getInstance().getReference().child("Department").child(intentedDep).child("Course").child(intentedShift);
         courseTitleRef=FirebaseDatabase.getInstance().getReference().child("Department").child(intentedDep).child("Courselist");
-        courseTitleRef.addValueEventListener(new ValueEventListener() {
+       /* courseTitleRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 CourseTitleList.clear();
@@ -69,7 +70,7 @@ public class AddCourseActivity extends AppCompatActivity {
                         courseCodeList.add(key1);
                     }
 
-                    ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(AddCourseActivity.this,android.R.layout.simple_list_item_1,CourseTitleList);
+                    ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(AddSubjectActivity.this,android.R.layout.simple_list_item_1,CourseTitleList);
 
                     courseTitleSP.setAdapter(arrayAdapter);
                     courseTitleSP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,6 +92,6 @@ public class AddCourseActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
     }
 }

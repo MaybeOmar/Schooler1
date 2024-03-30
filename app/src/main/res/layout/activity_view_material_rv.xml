@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewMaterialRV">
+    tools:context=".RecyclerViews.ViewMaterialRV">
 
     <!-- NestedScrollView to allow scrolling when RecyclerView exceeds available space -->
     <androidx.core.widget.NestedScrollView

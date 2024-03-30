@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.schoolmanagementsystem.RecyclerViews.AssignmentRecyclerViewActivity;
+
 public class EditAssignment extends AppCompatActivity {
 
     Button upload,fetch,profile_btn,settings_btn;

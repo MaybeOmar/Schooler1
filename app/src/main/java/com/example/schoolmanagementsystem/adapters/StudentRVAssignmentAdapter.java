@@ -1,4 +1,4 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.adapters;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.schoolmanagementsystem.R;
 
 import java.util.ArrayList;
 

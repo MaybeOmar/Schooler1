@@ -13,6 +13,9 @@ import android.content.Intent;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.schoolmanagementsystem.Models.Model;
+import com.example.schoolmanagementsystem.adapters.Adapter;
+
 
 public class admin_home_page extends AppCompatActivity {
     private List<Model> modelList;

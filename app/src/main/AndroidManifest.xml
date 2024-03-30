@@ -17,19 +17,25 @@
         android:theme="@style/Theme.SchoolManagementSystem"
         tools:targetApi="31">
         <activity
-            android:name=".AddCourseActivity"
+            android:name=".SubjectListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Registeration"
+            android:exported="false" />
+        <activity
+            android:name=".AddSubjectActivity"
             android:exported="false" />
         <activity
             android:name=".EditAttendance"
             android:exported="false" />
         <activity
-            android:name=".ViewAssignmentRV"
+            android:name=".RecyclerViews.ViewAssignmentRV"
             android:exported="false" />
         <activity
             android:name=".ViewAssignments"
             android:exported="false" />
         <activity
-            android:name=".AssignmentRecyclerViewActivity"
+            android:name=".RecyclerViews.AssignmentRecyclerViewActivity"
             android:exported="false" />
         <activity
             android:name=".UploadAssignment"
@@ -41,7 +47,7 @@
             android:name=".SubjectWorkActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewMaterialRV"
+            android:name=".RecyclerViews.ViewMaterialRV"
             android:exported="false" />
         <activity
             android:name=".ViewSubjectMaterial"
@@ -50,10 +56,10 @@
             android:name=".UploadSubjectMaterial"
             android:exported="false" />
         <activity
-            android:name=".MaterialRecyclerViewActivity"
+            android:name=".RecyclerViews.MaterialRecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name=".PDFInfo"
+            android:name=".Models.PDFInfo"
             android:exported="false" />
         <activity
             android:name=".login_page"
@@ -83,7 +89,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".Registeration"
+            android:name=".SelectEduYear"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

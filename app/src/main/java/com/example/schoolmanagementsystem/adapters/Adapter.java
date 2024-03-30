@@ -1,16 +1,17 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.adapters;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import android.widget.ImageButton;
 
+import com.example.schoolmanagementsystem.Models.Model;
+import com.example.schoolmanagementsystem.R;
 
 //"hello my name is yehya im 20 years old"
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
