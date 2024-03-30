@@ -1,7 +1,5 @@
 package com.example.schoolmanagementsystem;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -28,7 +25,8 @@ import java.util.List;
 public class SubjectListActivity extends AppCompatActivity {
     private FloatingActionButton addCourseButton;
     private RecyclerView subjectRV;
-    private String intented_subj;
+    private String intented_year;
+
     private SubjectListAdapter subjectListAdapter;
     private List<EducationYear> courseList=new ArrayList<>();
     private DatabaseReference subjectRef;
@@ -38,12 +36,12 @@ public class SubjectListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
         final Intent intent=getIntent();
-        intented_subj=intent.getStringExtra("eduYear");
+        intented_year =intent.getStringExtra("eduYear");
 
         addCourseButton=findViewById(R.id.addSubject);
         subjectRV =findViewById(R.id.subjectRV);
 
-        subjectRef= FirebaseDatabase.getInstance().getReference().child("Education Years").child(intented_subj).child("Subjects").child("Arabic");
+        subjectRef= FirebaseDatabase.getInstance().getReference().child("Education Years").child(intented_year).child("Subjects").child("Arabic");
         subjectRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -58,6 +56,7 @@ public class SubjectListActivity extends AppCompatActivity {
                     subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, courseList);
 
                     subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
+
                     subjectRV.setAdapter(subjectListAdapter);
                     subjectListAdapter.notifyDataSetChanged(); // Move notifyDataSetChanged() here
 
