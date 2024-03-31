@@ -1,6 +1,7 @@
 package com.example.schoolmanagementsystem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,14 +13,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class SelectEduYear extends AppCompatActivity {
     private Spinner eduYearSp;
@@ -105,7 +116,7 @@ public class SelectEduYear extends AppCompatActivity {
 
         NextBtn.setOnClickListener(v -> {
             if(SelectedYear !=null && !SelectedYear.equals("Select Education Year")){
-                Intent intent=new Intent(SelectEduYear.this, course_list.class);
+                Intent intent=new Intent(SelectEduYear.this,SubjectListActivity.class);
                 intent.putExtra("eduYear", SelectedYear);
                 startActivity(intent);
             }

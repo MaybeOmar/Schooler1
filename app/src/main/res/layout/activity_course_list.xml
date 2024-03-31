@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".course_list">
+    tools:context=".SubjectListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -153,10 +153,9 @@
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <!-- RecyclerView to display a list of items -->
         <androidx.recyclerview.widget.RecyclerView
@@ -165,8 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/simple_student_layout" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </androidx.core.widget.NestedScrollView>
 
