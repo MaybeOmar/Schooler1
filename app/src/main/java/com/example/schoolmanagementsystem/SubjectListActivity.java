@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.schoolmanagementsystem.Models.EducationYear;
+import com.example.schoolmanagementsystem.Models.Subject;
 import com.example.schoolmanagementsystem.adapters.SubjectListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -28,42 +28,37 @@ public class SubjectListActivity extends AppCompatActivity {
     private String intented_year;
 
     private SubjectListAdapter subjectListAdapter;
-    private List<EducationYear> courseList=new ArrayList<>();
+    private List<Subject> subjectList =new ArrayList<>();
     private DatabaseReference subjectRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        subjectRV =findViewById(R.id.subjectRV);
         final Intent intent=getIntent();
         intented_year =intent.getStringExtra("eduYear");
 
         addCourseButton=findViewById(R.id.addSubject);
-        subjectRV =findViewById(R.id.subjectRV);
 
-        subjectRef= FirebaseDatabase.getInstance().getReference().child("Education Years").child(intented_year).child("Subjects").child("Arabic");
+
+        subjectRef= FirebaseDatabase.getInstance().getReference().child("Education Years").child(intented_year).child("Subjects");
+        subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, subjectList);
+        subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
+        subjectRV.setAdapter(subjectListAdapter);
+
         subjectRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                courseList.clear();
+                subjectList.clear();
                 if(dataSnapshot.exists()){
                     for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
-                        if(dataSnapshot1.hasChildren()){
-                            EducationYear educationYear = dataSnapshot1.getValue(EducationYear.class);
-                            courseList.add(educationYear);
-                        }
+                            Subject subject = dataSnapshot1.getValue(Subject.class);
+                            subjectList.add(subject);
                     }
-                    subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, courseList);
-
-                    subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
-
-                    subjectRV.setAdapter(subjectListAdapter);
                     subjectListAdapter.notifyDataSetChanged(); // Move notifyDataSetChanged() here
-
                 }
             }
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
