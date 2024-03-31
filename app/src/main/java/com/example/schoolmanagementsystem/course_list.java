@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectListActivity extends AppCompatActivity {
+public class course_list extends AppCompatActivity {
     private FloatingActionButton addCourseButton;
     private RecyclerView subjectRV;
     private String intented_year;
@@ -53,9 +53,9 @@ public class SubjectListActivity extends AppCompatActivity {
                             courseList.add(educationYear);
                         }
                     }
-                    subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, courseList);
+                    subjectListAdapter = new SubjectListAdapter(course_list.this, courseList);
 
-                    subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
+                    subjectRV.setLayoutManager(new LinearLayoutManager(course_list.this));
 
                     subjectRV.setAdapter(subjectListAdapter);
                     subjectListAdapter.notifyDataSetChanged(); // Move notifyDataSetChanged() here
@@ -71,7 +71,7 @@ public class SubjectListActivity extends AppCompatActivity {
         });
 
         addCourseButton.setOnClickListener(v -> {
-            Toast.makeText(SubjectListActivity.this, "manga",Toast.LENGTH_SHORT).show();
+            Toast.makeText(course_list.this, "manga",Toast.LENGTH_SHORT).show();
             /*Intent intent1=new Intent(SubjectListActivity.this,admin_home_page.class);
             intent1.putExtra("eduYear",intented_subj);
             startActivity(intent1);*/
