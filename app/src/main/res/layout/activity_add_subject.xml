@@ -146,31 +146,8 @@
             app:srcCompat="@drawable/profile" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-
-        android:id="@+id/linearLayout7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="665dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-    </LinearLayout>
 
 
-    <Spinner
-        android:id="@+id/courseTitleSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
     <!--<EditText
         android:id="@+id/courseCode"
@@ -184,90 +161,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/courseTitleSp" />-->
 
-    <LinearLayout
-
-        android:id="@+id/linearLayout9"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="665dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-    </LinearLayout>
-
     <EditText
-        android:id="@+id/courseBatch"
+        android:id="@+id/subjectName"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:focusable="false"
-        android:hint="Course Batch"
+        android:hint="Subject Name"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="100dp"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseTitleSp" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+
+    <EditText
+        android:id="@+id/teacherName"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Teacher Name"
+        android:inputType="text"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <Spinner
         android:id="@+id/educationYearSp"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="310dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseBatch" />
-
-    <LinearLayout
-
-        android:id="@+id/linearLayout10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="665dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
-
-    <Spinner
-        android:id="@+id/courseTeacherSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/educationYearSp" />
-
-    <Spinner
-        android:id="@+id/semesterSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseTeacherSp" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <Button
-        android:id="@+id/addCourseBtn"
+        android:id="@+id/addSubjectBtn"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="568dp"
-        android:text="Add course"
+        android:text="Add subject"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="425dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

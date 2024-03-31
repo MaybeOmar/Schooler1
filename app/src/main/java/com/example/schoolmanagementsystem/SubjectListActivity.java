@@ -26,7 +26,6 @@ public class SubjectListActivity extends AppCompatActivity {
     private FloatingActionButton addCourseButton;
     private RecyclerView subjectRV;
     private String intented_year;
-
     private SubjectListAdapter subjectListAdapter;
     private List<Subject> subjectList =new ArrayList<>();
     private DatabaseReference subjectRef;
@@ -66,10 +65,9 @@ public class SubjectListActivity extends AppCompatActivity {
         });
 
         addCourseButton.setOnClickListener(v -> {
-            Toast.makeText(SubjectListActivity.this, "manga",Toast.LENGTH_SHORT).show();
-            /*Intent intent1=new Intent(SubjectListActivity.this,admin_home_page.class);
-            intent1.putExtra("eduYear",intented_subj);
-            startActivity(intent1);*/
+
+            Intent intent1=new Intent(SubjectListActivity.this,AddSubjectActivity.class);
+            startActivity(intent1);
         });
 
 

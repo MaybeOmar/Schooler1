@@ -1,10 +1,9 @@
 package com.example.schoolmanagementsystem;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +12,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,64 +27,49 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class AddSubjectActivity extends AppCompatActivity {
-    private Spinner educationYearSp, semesterSp;
-    private Spinner courseTeacherSp,courseTitleSP;
-    private EditText courseBatchET;
-    private DatabaseReference teacherListRef,courseRef,courseTitleRef;
-    private List<String> teacherList,batchList,teacherIDList,CourseTitleList,courseCodeList;
-    private String intentedDep,intentedShift;
-    private Button addCourseBtn;
-    private String selected_batch,selected_teacher,selected_teacherID,selected_course_title;
+    private Spinner eduYearsp;
+    private EditText subjectNameET, teacherNameET;
+    private DatabaseReference databaseReference;
+    private List<String> educationYearList;
+    private Button addSubjectBtn;
+    private String selectedEducationYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_subject);
-        educationYearSp=findViewById(R.id.educationYearSp);
-        courseTeacherSp=findViewById(R.id.courseTeacherSp);
-        courseTitleSP=findViewById(R.id.courseTitleSp);
-        courseBatchET=findViewById(R.id.courseBatch);
-        addCourseBtn=findViewById(R.id.addCourseBtn);
+        teacherNameET = findViewById(R.id.teacherName);
+        eduYearsp = findViewById(R.id.educationYearSp);
+        subjectNameET = findViewById(R.id.subjectName);
+        addSubjectBtn = findViewById(R.id.addSubjectBtn);
+        educationYearList = new ArrayList<>();
 
-        Intent intent=getIntent();
-        intentedDep=intent.getStringExtra("eduYear");
-        //SweetToast.success(getApplicationContext(),intentedShift);
-        Toast.makeText(AddSubjectActivity.this,intentedDep,Toast.LENGTH_SHORT).show();
-        teacherList=new ArrayList<>();
-        batchList=new ArrayList<>();
-        teacherIDList=new ArrayList<>();
-        CourseTitleList=new ArrayList<>();
-        courseCodeList=new ArrayList<>();
 
-        courseRef= FirebaseDatabase.getInstance().getReference().child("Department").child(intentedDep).child("Course").child(intentedShift);
-        courseTitleRef=FirebaseDatabase.getInstance().getReference().child("Department").child(intentedDep).child("Courselist");
-       /* courseTitleRef.addValueEventListener(new ValueEventListener() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Education Years");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                CourseTitleList.clear();
-                CourseTitleList.add(0,"Select course");
-                courseCodeList.add(0,"Course Code");
-                if (dataSnapshot.exists()){
-
-
-                    for (DataSnapshot ds1:dataSnapshot.getChildren()){
-                        String key=ds1.getKey();
-                        String key1=ds1.getValue().toString();
-                        CourseTitleList.add(key);
-                        courseCodeList.add(key1);
+                educationYearList.clear();
+                educationYearList.add("Select Education Year");
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                        if(dataSnapshot1.hasChildren()){
+                            String key=dataSnapshot1.getKey();
+                            educationYearList.add(key);
+                        }
                     }
-
-                    ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(AddSubjectActivity.this,android.R.layout.simple_list_item_1,CourseTitleList);
-
-                    courseTitleSP.setAdapter(arrayAdapter);
-                    courseTitleSP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    ArrayAdapter<String> arrayAdapter=new ArrayAdapter<>(AddSubjectActivity.this,android.R.layout.simple_list_item_1, educationYearList);
+                    eduYearsp.setAdapter(arrayAdapter);
+                    eduYearsp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            selected_course_title=parent.getItemAtPosition(position).toString();
-                            courseCodeET.setText(courseCodeList.get(position));
+                            selectedEducationYear =parent.getItemAtPosition(position).toString();
                         }
-
                         @Override
                         public void onNothingSelected(AdapterView<?> parent) {
 
@@ -92,6 +82,31 @@ public class AddSubjectActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
+
+        addSubjectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String teacherName = teacherNameET.getText().toString().trim();
+                String subjectName = subjectNameET.getText().toString().trim();
+                /*String selectedYear = educationYearList.get(eduYearsp.getSelectedItemPosition());*/
+
+                if (teacherName.isEmpty() || subjectName.isEmpty()) {
+                    Toast.makeText(AddSubjectActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Add subject to database
+                DatabaseReference subjectsRef = databaseReference.child(selectedEducationYear).child("Subjects").child(subjectName);
+                subjectsRef.child("teacher_name").setValue(teacherName);
+                subjectsRef.child("name").setValue(subjectName);
+
+                // Clear input fields
+                teacherNameET.setText("");
+                subjectNameET.setText("");
+
+                Toast.makeText(AddSubjectActivity.this, "Subject added successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
