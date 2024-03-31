@@ -12,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 
 import com.example.schoolmanagementsystem.Models.EducationYear;
+import com.example.schoolmanagementsystem.Models.Subject;
 import com.example.schoolmanagementsystem.R;
 
 import java.util.List;
 
 public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.ViewHolder> {
-    private List<EducationYear> subjectList;
+    private List<Subject> subjectList;
     private Context context;
 
-    public SubjectListAdapter(Context context, List<EducationYear> subjectList) {
+    public SubjectListAdapter(Context context, List<Subject> subjectList) {
         this.subjectList = subjectList;
         this.context = context;
     }
@@ -38,8 +39,9 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull SubjectListAdapter.ViewHolder holder, int position) {
-        holder.subject_name.setText(subjectList.get(holder.getAdapterPosition()).getSubject_name());
-        holder.teacherName.setText(subjectList.get(holder.getAdapterPosition()).getTeacher());
+        Subject subject = subjectList.get(position);
+        holder.subject_name.setText(subject.getName());
+        holder.teacherName.setText(subject.getTeacher_name());
     }
 
     @Override
