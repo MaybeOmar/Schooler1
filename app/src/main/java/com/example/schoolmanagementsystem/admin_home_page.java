@@ -30,7 +30,7 @@ public class admin_home_page extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home_page);
 
         modelList = new ArrayList<>();
-        modelList.add(new Model(R.drawable.addaccount, Registeration.class,"Create Account"));
+        modelList.add(new Model(R.drawable.addaccount, AddActivity.class,"Add"));
         modelList.add(new Model(R.drawable.deleteaccount, student_home_page.class,"Delete Account"));
         modelList.add(new Model(R.drawable.announcement,login_page.class,"Announcements"));
         modelList.add(new Model(R.drawable.subjectwork1, SubjectWorkActivity.class,"Class Work"));

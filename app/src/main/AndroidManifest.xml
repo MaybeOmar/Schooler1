@@ -17,6 +17,9 @@
         android:theme="@style/Theme.SchoolManagementSystem"
         tools:targetApi="31">
         <activity
+            android:name=".AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".SubjectListActivity"
             android:exported="false" />
         <activity
@@ -77,7 +80,7 @@
             android:name=".parent_home_page"
             android:exported="false" />
         <activity
-            android:name=".admin_home_page"
+            android:name=".SelectEduYear"
             android:exported="false" />
         <activity
             android:name=".EditMaterial"
@@ -89,7 +92,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".SelectEduYear"
+            android:name=".admin_home_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

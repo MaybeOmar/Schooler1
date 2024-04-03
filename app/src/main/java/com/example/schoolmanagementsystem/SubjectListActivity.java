@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.schoolmanagementsystem.Models.Subject;
 import com.example.schoolmanagementsystem.adapters.SubjectListAdapter;
@@ -33,7 +32,7 @@ public class SubjectListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course_list);
+        setContentView(R.layout.activity_subject_list);
         subjectRV =findViewById(R.id.subjectRV);
         final Intent intent=getIntent();
         intented_year =intent.getStringExtra("eduYear");
@@ -41,7 +40,7 @@ public class SubjectListActivity extends AppCompatActivity {
         addCourseButton=findViewById(R.id.addSubject);
 
 
-        subjectRef= FirebaseDatabase.getInstance().getReference().child("Education Years").child(intented_year).child("Subjects");
+        subjectRef= FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intented_year).child("Subjects");
         subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, subjectList);
         subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
         subjectRV.setAdapter(subjectListAdapter);

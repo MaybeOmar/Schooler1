@@ -56,5 +56,4 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
             teacherName=itemView.findViewById(R.id.studentIDv);
         }
     }
-
 }

@@ -166,7 +166,7 @@
             android:id="@+id/subjectRV"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="0dp"
             android:nestedScrollingEnabled="false"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

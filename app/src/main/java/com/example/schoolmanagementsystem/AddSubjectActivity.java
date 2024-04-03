@@ -49,7 +49,7 @@ public class AddSubjectActivity extends AppCompatActivity {
 
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Education Years");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

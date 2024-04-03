@@ -45,7 +45,7 @@ public class SelectEduYear extends AppCompatActivity {
         eduYearSp = findViewById(R.id.eduYearSp);
         NextBtn = findViewById(R.id.tNextBtn);
 
-        eduYearRef = FirebaseDatabase.getInstance().getReference().child("Education Years");
+        eduYearRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years");
         eduYearRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
