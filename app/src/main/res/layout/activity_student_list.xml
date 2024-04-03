@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerViews.SubjectListActivity">
+    tools:context=".RecyclerViews.StudentListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -163,7 +163,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/subjectRV"
+            android:id="@+id/studentRV"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="0dp"
@@ -172,7 +172,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-            tools:listitem="@layout/single_subject_layout" />
+            tools:listitem="@layout/single_student_layout" />
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

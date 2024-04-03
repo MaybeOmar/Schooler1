@@ -1,4 +1,4 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.RecyclerViews;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.schoolmanagementsystem.AddSubjectActivity;
 import com.example.schoolmanagementsystem.Models.Subject;
+import com.example.schoolmanagementsystem.R;
 import com.example.schoolmanagementsystem.adapters.SubjectListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +26,7 @@ import java.util.List;
 public class SubjectListActivity extends AppCompatActivity {
     private FloatingActionButton addCourseButton;
     private RecyclerView subjectRV;
-    private String intented_year;
+    private String intended_year;
     private SubjectListAdapter subjectListAdapter;
     private List<Subject> subjectList =new ArrayList<>();
     private DatabaseReference subjectRef;
@@ -35,12 +37,12 @@ public class SubjectListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_subject_list);
         subjectRV =findViewById(R.id.subjectRV);
         final Intent intent=getIntent();
-        intented_year =intent.getStringExtra("eduYear");
+        intended_year =intent.getStringExtra("eduYear");
 
-        addCourseButton=findViewById(R.id.addSubject);
+        addCourseButton=findViewById(R.id.addStudent);
 
 
-        subjectRef= FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intented_year).child("Subjects");
+        subjectRef= FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intended_year).child("Subjects");
         subjectListAdapter = new SubjectListAdapter(SubjectListActivity.this, subjectList);
         subjectRV.setLayoutManager(new LinearLayoutManager(SubjectListActivity.this));
         subjectRV.setAdapter(subjectListAdapter);
@@ -65,7 +67,7 @@ public class SubjectListActivity extends AppCompatActivity {
 
         addCourseButton.setOnClickListener(v -> {
 
-            Intent intent1=new Intent(SubjectListActivity.this,AddSubjectActivity.class);
+            Intent intent1=new Intent(SubjectListActivity.this, AddSubjectActivity.class);
             startActivity(intent1);
         });
 
