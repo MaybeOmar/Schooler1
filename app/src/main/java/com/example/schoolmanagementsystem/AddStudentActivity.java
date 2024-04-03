@@ -131,11 +131,16 @@ public class AddStudentActivity extends AppCompatActivity {
                     return;
                 }
 
-                destinationRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(selectedEducationYear).child("Classes").child(selectedClass).child(studentName);
+                destinationRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(selectedEducationYear).child("Classes").child(selectedClass).child("Students").child(studentID);
 
                 destinationRef.child("id").setValue(studentID);
                 destinationRef.child("name").setValue(studentName);
                 destinationRef.child("email").setValue(studentEmail);
+                destinationRef.child("password").setValue("");
+                destinationRef.child("class").setValue(selectedClass);
+                destinationRef.child("phone").setValue("1234");
+                destinationRef.child("year").setValue(selectedEducationYear);
+
 
 
                 // Clear input fields

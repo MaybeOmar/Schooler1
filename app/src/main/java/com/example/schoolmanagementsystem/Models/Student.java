@@ -10,7 +10,7 @@ public class Student {
     String email;
     String Classroom;
 
-    /*public Student(String id, String name, String password, String phone, String year, String email, String classroom) {
+    public Student(String id, String name, String password, String phone, String year, String email, String classroom) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -18,12 +18,13 @@ public class Student {
         this.year = year;
         this.email = email;
         this.Classroom = classroom;
-    }*/
-    public Student(String id, String name,String email) {
+    }
+
+    /*public Student(String id, String name,String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-    }
+    }*/
 
     public Student(){
 

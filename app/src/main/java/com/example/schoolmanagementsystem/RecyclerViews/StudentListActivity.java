@@ -42,7 +42,7 @@ public class StudentListActivity extends AppCompatActivity {
         intended_year =intent.getStringExtra("eduYear");
         intended_class = intent.getStringExtra("class");
 
-        studentRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intended_year).child("Classes").child(intended_class);
+        studentRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intended_year).child("Classes").child(intended_class).child("Students");
         studentListAdapter = new StudentListAdapter( studentList, StudentListActivity.this);
         studentRV.setLayoutManager(new LinearLayoutManager(StudentListActivity.this));
         studentRV.setAdapter(studentListAdapter);
@@ -59,7 +59,7 @@ public class StudentListActivity extends AppCompatActivity {
                         String studentEmail = dataSnapshot1.child("email").getValue(String.class);
 
                         // Construct Student object
-                        Student student = new Student(studentId, studentName, studentEmail);
+                        Student student = new Student(studentId, studentName,"","",intended_year, studentEmail,intended_class);
                         studentList.add(student);
                     }
                     studentListAdapter.notifyDataSetChanged(); // Move notifyDataSetChanged() here
