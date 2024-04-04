@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.example.schoolmanagementsystem.RecyclerViews.StudentListActivity;
+import com.example.schoolmanagementsystem.RecyclerViews.TeacherListActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

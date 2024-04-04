@@ -32,6 +32,7 @@ public class AddActivity extends AppCompatActivity {
         modelList.add(new Model(R.drawable.addaccount, SelectEduYearSub.class,"Add Subject"));
         modelList.add(new Model(R.drawable.addaccount, SelectEduYearTeacher.class,"Add Teacher"));
         modelList.add(new Model(R.drawable.addaccount, SelectEduYearStu.class,"Add Student"));
+        modelList.add(new Model(R.drawable.addaccount, SelectEduYearClass.class,"Add Class"));
 
 
 
