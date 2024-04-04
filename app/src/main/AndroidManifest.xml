@@ -20,7 +20,7 @@
             android:name=".AddClassActivity"
             android:exported="false" />
         <activity
-            android:name=".ClassListActivity"
+            android:name=".RecyclerViews.ClassListActivity"
             android:exported="false" />
         <activity
             android:name=".SelectEduYearClass"

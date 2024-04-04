@@ -1,4 +1,4 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.RecyclerViews;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,10 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.schoolmanagementsystem.Models.ClassModel;
-import com.example.schoolmanagementsystem.Models.Teacher;
+import com.example.schoolmanagementsystem.AddClassActivity;
+import com.example.schoolmanagementsystem.R;
 import com.example.schoolmanagementsystem.adapters.ClassListAdapter;
-import com.example.schoolmanagementsystem.adapters.TeacherListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
