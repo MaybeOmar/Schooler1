@@ -17,6 +17,15 @@
         android:theme="@style/Theme.SchoolManagementSystem"
         tools:targetApi="31">
         <activity
+            android:name=".SelectAttendInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TakeAttendanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectTeacherID"
             android:exported="false" />
         <activity
@@ -101,7 +110,7 @@
             android:name=".settings"
             android:exported="false" />
         <activity
-            android:name=".teacher_home_page"
+            android:name=".admin_home_page"
             android:exported="false" />
         <activity
             android:name=".parent_home_page"
@@ -119,7 +128,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".admin_home_page"
+            android:name=".teacher_home_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
