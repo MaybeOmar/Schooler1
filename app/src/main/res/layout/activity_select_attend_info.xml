@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTeacherActivity">
+    tools:context=".SelectAttendInfoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="0dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -143,68 +144,89 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/teacherName"
-        android:layout_width="350dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Teacher Name"
+        android:weightSum="5"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="50dp"
-        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4.3">
+
+            <EditText
+                android:id="@+id/dateET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:hint="Pick a date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/dateIbtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_weight=".7"
+            android:src="@drawable/icons8_date_64"
+            android:background="@android:color/transparent" />
+
+    </LinearLayout>
 
 
-    <EditText
-        android:id="@+id/teacherID"
+    <!--<EditText
+        android:id="@+id/className"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:hint="Teacher ID"
-        android:inputType="text"
+        android:hint="Class Name"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <EditText
-        android:id="@+id/teacherEmail"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher E-mail"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="450dp"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Spinner
-        android:id="@+id/educationYearSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="250dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />-->
 
     <Spinner
         android:id="@+id/classSp"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="350dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/tNextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="1.0" />
+    <Spinner
+        android:id="@+id/eduYearSp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/tNextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/addTeacherBtn"
+        android:id="@+id/tNextBtn"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="Add teacher"
+        android:layout_marginTop="350dp"
+        android:text="N e x t"
         android:textSize="15sp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="550dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 

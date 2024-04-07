@@ -32,7 +32,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
 
         modelList = new ArrayList<>();
         modelList.add(new Model(R.drawable.material, EditMaterial.class,"Subject Material"));
-        modelList.add(new Model(R.drawable.a_attend, student_home_page.class,"Attendance"));
+        modelList.add(new Model(R.drawable.a_attend, AttendanceActivity.class,"Attendance"));
         modelList.add(new Model(R.drawable.a_grades, student_home_page.class,"Grades"));
         modelList.add(new Model(R.drawable.assignment_kbeer, EditAssignment.class,"Assignment"));
         modelList.add(new Model(R.drawable.generateexam, student_home_page.class,"Generate Exam"));
@@ -50,7 +50,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         settings_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentsettings = new Intent(SubjectWorkActivity.this,settings.class);
+                intentsettings = new Intent(SubjectWorkActivity.this, settings.class);
                 startActivity(intentsettings);
             }
         });
@@ -60,7 +60,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentprofile = new Intent(SubjectWorkActivity.this,profile.class);
+                intentprofile = new Intent(SubjectWorkActivity.this, profile.class);
                 startActivity(intentprofile);
             }
         });

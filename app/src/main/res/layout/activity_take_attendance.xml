@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTeacherActivity">
-
+    tools:context=".TakeAttendanceActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="0dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,69 +142,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/teacherName"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher Name"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="50dp"
-        android:inputType="text"
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.414">
+
+        <!-- RecyclerView to display a list of items -->
 
 
-    <EditText
-        android:id="@+id/teacherID"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher ID"
-        android:inputType="text"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <EditText
-        android:id="@+id/teacherEmail"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher E-mail"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="450dp"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Spinner
-        android:id="@+id/educationYearSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="250dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Spinner
-        android:id="@+id/classSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="350dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/studentRV"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:layout_marginTop="0dp"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            tools:listitem="@layout/single_attendance_layout" />
+    </androidx.core.widget.NestedScrollView>
 
     <Button
-        android:id="@+id/addTeacherBtn"
-        android:layout_width="350dp"
+        android:id="@+id/submitbtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add teacher"
-        android:textSize="15sp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="550dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="600dp"
+        android:text="S u b m i t"
+
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

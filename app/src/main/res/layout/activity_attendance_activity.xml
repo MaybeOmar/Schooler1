@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTeacherActivity">
+    tools:context=".AttendanceActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -91,7 +91,7 @@
 
         <Button
             android:id="@+id/profile_button"
-            android:layout_width="46dp"
+            android:layout_width="50dp"
             android:layout_height="54dp"
             android:layout_marginStart="21dp"
             android:backgroundTint="@color/white"
@@ -115,8 +115,8 @@
 
         <Button
             android:id="@+id/settings_button"
-            android:layout_width="41dp"
-            android:layout_height="47dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="12dp"
             android:backgroundTint="@color/white"
             android:text=""
@@ -143,69 +143,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/profile" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/teacherName"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher Name"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="50dp"
-        android:inputType="text"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-
-    <EditText
-        android:id="@+id/teacherID"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher ID"
-        android:inputType="text"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <EditText
-        android:id="@+id/teacherEmail"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Teacher E-mail"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="450dp"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Spinner
-        android:id="@+id/educationYearSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="250dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Spinner
-        android:id="@+id/classSp"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="350dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
-    <Button
-        android:id="@+id/addTeacherBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:text="Add teacher"
-        android:textSize="15sp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="550dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="0.0"
+        app:spanCount="2"
+        tools:listitem="@layout/activity_card_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
