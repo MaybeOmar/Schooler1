@@ -1,13 +1,13 @@
 package com.example.schoolmanagementsystem;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schoolmanagementsystem.Models.Model;
 import com.example.schoolmanagementsystem.adapters.Adapter;
@@ -15,9 +15,8 @@ import com.example.schoolmanagementsystem.adapters.Adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectWorkActivity extends AppCompatActivity {
-
-    Button /*upload,fetch,*/profile_btn,settings_btn;
+public class AttendanceActivity extends AppCompatActivity {
+    Button profile_btn,settings_btn;
     private List<Model> modelList;
     RecyclerView RV;
     Adapter adapter;
@@ -26,17 +25,12 @@ public class SubjectWorkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject_work);
-       /* upload = findViewById(R.id.upload);
-        fetch = findViewById(R.id.fetch);*/
+        setContentView(R.layout.activity_attendance_activity);
 
         modelList = new ArrayList<>();
-        modelList.add(new Model(R.drawable.material, EditMaterial.class,"Subject Material"));
-        modelList.add(new Model(R.drawable.a_attend, AttendanceActivity.class,"Attendance"));
-        modelList.add(new Model(R.drawable.a_grades, student_home_page.class,"Grades"));
-        modelList.add(new Model(R.drawable.assignment_kbeer, EditAssignment.class,"Assignment"));
-        modelList.add(new Model(R.drawable.generateexam, student_home_page.class,"Generate Exam"));
-        modelList.add(new Model(R.drawable.announcement, login_page.class,"Announcements"));
+        modelList.add(new Model(R.drawable.a_attend, student_home_page.class,"View Attendance"));
+        modelList.add(new Model(R.drawable.a_attend, SelectAttendInfoActivity.class,"Take Attendance"));
+
 
         //recyclerView
         RV = findViewById(R.id.id_recyclerview);
@@ -50,7 +44,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         settings_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentsettings = new Intent(SubjectWorkActivity.this, settings.class);
+                intentsettings = new Intent(AttendanceActivity.this, settings.class);
                 startActivity(intentsettings);
             }
         });
@@ -60,7 +54,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentprofile = new Intent(SubjectWorkActivity.this, profile.class);
+                intentprofile = new Intent(AttendanceActivity.this, profile.class);
                 startActivity(intentprofile);
             }
         });

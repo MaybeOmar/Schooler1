@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 
-import com.example.schoolmanagementsystem.Models.EducationYear;
 import com.example.schoolmanagementsystem.Models.Subject;
 import com.example.schoolmanagementsystem.R;
 
@@ -33,7 +31,7 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
     @Override
     public SubjectListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater=LayoutInflater.from(context);
-        View view=layoutInflater.inflate(R.layout.simple_student_layout,parent,false);
+        View view=layoutInflater.inflate(R.layout.single_subject_layout,parent,false);
         return new SubjectListAdapter.ViewHolder(view);
     }
 
@@ -56,5 +54,4 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectListAdapter.
             teacherName=itemView.findViewById(R.id.studentIDv);
         }
     }
-
 }

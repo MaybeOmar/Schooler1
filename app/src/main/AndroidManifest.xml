@@ -19,9 +19,7 @@
         <activity
             android:name=".annoouncment_List"
             android:exported="false" />
-        <activity
-            android:name=".ui.announcment_list"
-            android:exported="false" />
+
         <activity
             android:name=".SelectEduYear"
             android:exported="false" />
@@ -31,9 +29,7 @@
         <activity
             android:name=".Registeration"
             android:exported="false" />
-        <activity
-            android:name=".AddSubjectActivity"
-            android:exported="false" />
+
         <activity
             android:name=".RecyclerViews.ViewAssignmentRV"
             android:exported="false" />
@@ -68,7 +64,7 @@
             android:name=".Models.PDFInfo"
             android:exported="false" />
         <activity
-            android:name=".SubjectListActivity"
+            android:name=".login_page"
             android:exported="false" />
         <activity
             android:name=".profile"
@@ -95,7 +91,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".login_page"
+            android:name=".SelectEduYear"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

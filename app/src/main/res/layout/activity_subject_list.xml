@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectEduYear">
+    tools:context=".RecyclerViews.SubjectListActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -85,7 +85,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -148,29 +147,45 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <Spinner
-        android:id="@+id/eduYearSp"
-        android:layout_width="350dp"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.414">
+
+        <!-- RecyclerView to display a list of items -->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/subjectRV"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="0dp"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+            tools:listitem="@layout/single_subject_layout" />
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addStudent"
+        android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/tNextBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/tNextBtn"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:text="N e x t"
-        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="325dp"
+        android:layout_marginTop="525dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,7 +64,7 @@ public class login_page extends AppCompatActivity {
                     fAuth.signInWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(login_page.this,"Login succesfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login_page.this,"Login successfully",Toast.LENGTH_SHORT).show();
                             checkUserAccessLevel(authResult.getUser().getUid());
 
                         }
@@ -76,6 +76,7 @@ public class login_page extends AppCompatActivity {
                         }
                     });
                 }
+
             }
         });
         signup.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +85,7 @@ public class login_page extends AppCompatActivity {
                 intent = new Intent(login_page.this, Registeration.class);
                 startActivity(intent);
             }
+
         });
     }
 
