@@ -1,16 +1,16 @@
 package com.example.schoolmanagementsystem.Models;
 
 public class announcment_model {
-    String id,title,discription;
+    String id,title,Description;
 
     public announcment_model() {
 
     }
 
-    public announcment_model(String id, String title, String discription) {
+    public announcment_model(String id, String title, String description) {
         this.id = id;
         this.title = title;
-        this.discription = discription;
+        this.Description = description;
     }
 
     public String getId() {
@@ -29,11 +29,11 @@ public class announcment_model {
         this.title = title;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return Description;
     }
 
     public void setDiscription(String discription) {
-        this.discription = discription;
+        this.Description = discription;
     }
 }

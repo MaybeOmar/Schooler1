@@ -1,7 +1,6 @@
 package com.example.schoolmanagementsystem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -47,7 +46,7 @@ public class add_announcement extends AppCompatActivity {
 view_list.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(add_announcement.this,announcment_list.class));
+        startActivity(new Intent(add_announcement.this, annoouncment_List.class));
         finish();
     }
 });

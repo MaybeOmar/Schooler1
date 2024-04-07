@@ -17,10 +17,13 @@
         android:theme="@style/Theme.SchoolManagementSystem"
         tools:targetApi="31">
         <activity
-            android:name=".announcment_list"
+            android:name=".annoouncment_List"
             android:exported="false" />
         <activity
-            android:name=".SubjectListActivity"
+            android:name=".ui.announcment_list"
+            android:exported="false" />
+        <activity
+            android:name=".SelectEduYear"
             android:exported="false" />
         <activity
             android:name=".add_announcement"
@@ -65,7 +68,7 @@
             android:name=".Models.PDFInfo"
             android:exported="false" />
         <activity
-            android:name=".SelectEduYear"
+            android:name=".SubjectListActivity"
             android:exported="false" />
         <activity
             android:name=".profile"
