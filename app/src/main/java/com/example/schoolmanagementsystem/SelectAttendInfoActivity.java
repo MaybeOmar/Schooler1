@@ -173,18 +173,13 @@ public class SelectAttendInfoActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SelectedYear != null && !SelectedYear.equals("Select Education Year") && SelectedClass != null && !SelectedClass.equals("Select Classroom")) {
-                    Intent intent = new Intent(SelectAttendInfoActivity.this, TeacherListActivity.class);
+                date = dateET.getText().toString();
+                if (SelectedYear != null && !SelectedYear.equals("Select Education Year") && SelectedClass != null && !SelectedClass.equals("Select Classroom") && !date.isEmpty()) {
+                    Intent intent = new Intent(SelectAttendInfoActivity.this, TakeAttendanceActivity.class);
                     intent.putExtra("eduYear", SelectedYear);
                     intent.putExtra("class", SelectedClass);
+                    intent.putExtra("DATE", date);
                     startActivity(intent);
-                    date = dateET.getText().toString();
-                    if (!date.isEmpty()) {
-                        Intent intent1 = new Intent(SelectAttendInfoActivity.this, TakeAttendanceActivity.class);
-                        intent1.putExtra("DATE", date);
-                        startActivity(intent1);
-                    } else {
-                    }
                 }
             }
         });
