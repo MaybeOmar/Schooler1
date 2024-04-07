@@ -27,11 +27,9 @@ import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-
-
 public class settings extends AppCompatActivity {
 
-
+    private static final int RESULT_LOGGED_OUT = 1001; // You can choose any unique value
     Button logout_btn,back_btn;
 
     Intent intentlogin;
@@ -41,20 +39,31 @@ public class settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        logout_btn=findViewById(R.id.logout_button);
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+
+                // Create an intent to return to the login page
+                intentlogin = new Intent(settings.this,login_page.class);
+                startActivity(intentlogin);
+                finish(); // Finish the activity after starting the login page
+            }
+        });
+
+        back_btn=findViewById(R.id.back_button);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
-      logout_btn=findViewById(R.id.logout_button);
-      logout_btn.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              FirebaseAuth.getInstance().signOut();
-              intentlogin = new Intent(settings.this,login_page.class);
-              startActivity(intentlogin);
-              finish();
-          }
-      });
 
-      back_btn=findViewById(R.id.back_button);
+
+        back_btn=findViewById(R.id.back_button);
       back_btn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -70,9 +79,6 @@ public class settings extends AppCompatActivity {
 
     }
 
-
-
-    //logout button
 
 
 

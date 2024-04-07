@@ -8,9 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.schoolmanagementsystem.Models.Model;
 import com.example.schoolmanagementsystem.adapters.Adapter;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +27,8 @@ public class AddActivity extends AppCompatActivity {
     Adapter adapter;
     Intent intentprofile,intentsettings;
     Button profile_btn,settings_btn;
-
+    TextView displayusername;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +52,22 @@ public class AddActivity extends AppCompatActivity {
         RV.setAdapter(adapter);
 
 
+        auth = FirebaseAuth.getInstance();
+        displayusername = findViewById(R.id.username);
+
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference userRef = db.collection("User").document(userId);
+
+        userRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    String fullName = documentSnapshot.getString("FullName");
+                    displayusername.setText(fullName);
+                }
+            }
+        });
 
 
         //settings button
