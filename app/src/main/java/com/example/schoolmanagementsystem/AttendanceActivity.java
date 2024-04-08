@@ -28,7 +28,7 @@ public class AttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance_activity);
 
         modelList = new ArrayList<>();
-        modelList.add(new Model(R.drawable.a_attend, student_home_page.class,"View Attendance"));
+        modelList.add(new Model(R.drawable.a_attend, ViewAttendanceInfo.class,"View Attendance"));
         modelList.add(new Model(R.drawable.a_attend, SelectAttendInfoActivity.class,"Take Attendance"));
 
 
