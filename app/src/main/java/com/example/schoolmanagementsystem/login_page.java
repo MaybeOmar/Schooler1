@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -47,6 +48,7 @@ public class login_page extends AppCompatActivity {
 
         //Add button
         signup=findViewById(R.id.Signup);
+
 
         login_button = findViewById(R.id.id_button_login);
         login_button.setOnClickListener(new View.OnClickListener()
@@ -99,6 +101,7 @@ public class login_page extends AppCompatActivity {
                 if (documentSnapshot.getString("isAdmin") != null) {
                     startActivity(new Intent(getApplicationContext(), admin_home_page.class));
                     finish();
+
                 } else if (documentSnapshot.getString("isParent") != null) {
                     startActivity(new Intent(getApplicationContext(), parent_home_page.class));
                     finish();

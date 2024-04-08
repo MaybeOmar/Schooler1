@@ -1,10 +1,10 @@
 package com.example.schoolmanagementsystem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +24,7 @@ public class add_announcement extends AppCompatActivity {
 
 
     EditText titleET,descriptionET;
-    Button save;
+    Button save,view_list;
 
     ProgressDialog pd;
     FirebaseFirestore db;
@@ -35,13 +35,21 @@ public class add_announcement extends AppCompatActivity {
         titleET=findViewById(R.id.anns_TitleET);
         descriptionET=findViewById(R.id.anns_DiscriptionET);
         save=findViewById(R.id.anns_savebtn);
+        view_list=findViewById(R.id.view_listbtn);
+
 
         //ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("Add data");
 
         pd=new ProgressDialog(this);
         db=FirebaseFirestore.getInstance();
-
+view_list.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(add_announcement.this, annoouncment_List.class));
+        finish();
+    }
+});
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

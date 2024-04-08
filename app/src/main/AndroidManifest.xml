@@ -64,6 +64,13 @@
         <activity
             android:name=".RecyclerViews.ViewAssignmentRV"
             android:exported="false" />
+
+        <activity
+            android:name=".annoouncment_List"
+            android:exported="false" />
+        <activity
+            android:name=".add_announcement"
+            android:exported="false" />
         <activity
             android:name=".ViewAssignments"
             android:exported="false" />
@@ -95,22 +102,28 @@
             android:name=".Models.PDFInfo"
             android:exported="false" />
         <activity
-            android:name=".login_page"
+            android:name=".profile"
             android:exported="false" />
         <activity
-            android:name=".profile"
+            android:name=".SelectAttendInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TakeAttendanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceActivity"
             android:exported="false" />
         <activity
             android:name=".settings"
             android:exported="false" />
         <activity
-            android:name=".admin_home_page"
+            android:name=".teacher_home_page"
             android:exported="false" />
         <activity
             android:name=".parent_home_page"
             android:exported="false" />
         <activity
-            android:name=".SelectEduYearSub"
+            android:name=".admin_home_page"
             android:exported="false" />
         <activity
             android:name=".EditMaterial"
@@ -122,17 +135,9 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".AttendanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SelectAttendInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TakeAttendanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".teacher_home_page"
+            android:name=".login_page"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
