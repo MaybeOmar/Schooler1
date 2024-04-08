@@ -34,7 +34,7 @@ public class teacher_home_page extends AppCompatActivity {
         modelList = new ArrayList<>();
         modelList.add(new Model(R.drawable.subjectwork1, SubjectWorkActivity.class,"Class Work"));
         modelList.add(new Model(R.drawable.generateexam, student_home_page.class,"Generate Exam"));
-        modelList.add(new Model(R.drawable.announcement, login_page.class,"Announcements"));
+        modelList.add(new Model(R.drawable.announcement, annoouncment_List.class,"Announcements"));
 
 
 

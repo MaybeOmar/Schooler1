@@ -123,7 +123,7 @@
             android:name=".parent_home_page"
             android:exported="false" />
         <activity
-            android:name=".admin_home_page"
+            android:name=".login_page"
             android:exported="false" />
         <activity
             android:name=".EditMaterial"
@@ -135,7 +135,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".login_page"
+            android:name=".admin_home_page"
             android:exported="true">
 
             <intent-filter>

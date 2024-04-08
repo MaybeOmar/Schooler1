@@ -71,7 +71,7 @@ public class annoouncment_List extends AppCompatActivity {
                                 if(isParent!=null || isStudent!=null)
                                 {
                                     // User is student or doesn't have a role - hide add button
-                                    addbtn.setVisibility(View.VISIBLE);
+                                    addbtn.setVisibility(View.GONE);
                                 }
                             } else {
                                 // Document does not exist, handle as needed
