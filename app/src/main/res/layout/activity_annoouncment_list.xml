@@ -28,6 +28,15 @@
     android:layout_alignParentBottom="true"
     android:layout_alignParentEnd="true"
     android:layout_alignParentRight="true"
+    android:layout_margin="25dp"
+    android:backgroundTint="@color/design_default_color_primary"
+    android:tint="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circular"
+
+
+
     ></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <!--<Button

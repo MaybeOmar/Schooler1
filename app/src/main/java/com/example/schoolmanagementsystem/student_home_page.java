@@ -47,6 +47,8 @@ public class student_home_page extends AppCompatActivity {
         modelList.add(new Model(R.drawable.a_fees, blank.class,"Tuition Fees"));
         modelList.add(new Model(R.drawable.subjectwork1, ViewSubjectMaterial.class,"Subject Work"));
         modelList.add(new Model(R.drawable.a_callparent, blank.class,"Call Parent"));
+        modelList.add(new Model(R.drawable.announcement, annoouncment_List.class,"Announcments"));
+
 
         //recyclerView
         RV = findViewById(R.id.id_recyclerview);
