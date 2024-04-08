@@ -1,14 +1,11 @@
-
 package com.example.schoolmanagementsystem;
 
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schoolmanagementsystem.Models.announcment_model;
 
@@ -17,72 +14,45 @@ import java.util.List;
 
 public class announcment_adapter extends RecyclerView.Adapter<ViewHolder> {
 
-
     annoouncment_List anns_list;
     ArrayList<announcment_model> modelList;
-    Context context;
-
-
+    LayoutInflater inflater;
 
     public announcment_adapter(annoouncment_List anns_list, List<announcment_model> modelList) {
         this.modelList = (ArrayList<announcment_model>) modelList;
         this.anns_list = anns_list;
-
+        this.inflater = LayoutInflater.from(anns_list);
     }
-
-
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View itemview = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.announcment_model_layout,viewGroup,false);
-
-        ViewHolder holder =new ViewHolder(itemview);
+        View itemView = inflater.inflate(R.layout.announcment_model_layout, viewGroup, false);
+        ViewHolder holder = new ViewHolder(itemView);
         holder.setonclicklistener(new ViewHolder.clicklistener() {
             @Override
             public void onitemclick(View view, int position) {
-
-                String title = modelList.get(position).getTitle();
-                String description = modelList.get(position).getDescription();
-
+                // Handle item click
             }
 
             @Override
             public void onitemlongclick(View view, int position) {
-
+                // Handle item long click
             }
         });
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder Holder, int position) {
-
-        announcment_model model= modelList.get(position);
-        Holder.title.setText(modelList.get(position).getTitle());
-        Holder.description.setText(modelList.get(position).getDescription());
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        announcment_model model = modelList.get(position);
+        holder.title.setText(model.getTitle());
+        holder.description.setText(model.getDescription());
+        holder.fullName.setText(model.getFullName()); // Set full name
     }
-
-
-   /* public class viewHolder extends RecyclerView.ViewHolder{
-
-        private TextView title,description;
-        public viewHolder(@NonNull View itemView) {
-            super(itemView);
-            title=itemView.findViewById(R.id.rtitle);
-            description=itemView.findViewById(R.id.rdescription);
-        }
-    }*/
 
     @Override
     public int getItemCount() {
         return modelList.size();
     }
-
-
 }
-
-

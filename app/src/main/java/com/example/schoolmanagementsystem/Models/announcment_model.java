@@ -1,16 +1,19 @@
 package com.example.schoolmanagementsystem.Models;
 
 public class announcment_model {
-    String id,title,Description;
+    String id, title, description, fullName; // Adding fullName attribute
 
-    public announcment_model() {
-
+    public announcment_model(String id, String title, String description, String fullName) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.fullName = fullName; // Assigning fullName in constructor
     }
 
     public announcment_model(String id, String title, String description) {
         this.id = id;
         this.title = title;
-        this.Description = description;
+        this.description = description;
     }
 
     public String getId() {
@@ -30,10 +33,18 @@ public class announcment_model {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.Description = discription;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }
