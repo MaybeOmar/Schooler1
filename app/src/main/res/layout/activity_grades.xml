@@ -2,13 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerViews.TakeAttendanceActivity">
+    tools:context=".GradesActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="65dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +92,7 @@
 
         <Button
             android:id="@+id/profile_button"
-            android:layout_width="46dp"
+            android:layout_width="50dp"
             android:layout_height="54dp"
             android:layout_marginStart="21dp"
             android:backgroundTint="@color/white"
@@ -114,8 +116,8 @@
 
         <Button
             android:id="@+id/settings_button"
-            android:layout_width="41dp"
-            android:layout_height="47dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="12dp"
             android:backgroundTint="@color/white"
             android:text=""
@@ -145,46 +147,18 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="370dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414">
-
-        <!-- RecyclerView to display a list of items -->
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/studentRV"
-            android:layout_width="match_parent"
-            android:layout_height="550dp"
-            android:layout_marginTop="0dp"
-            android:nestedScrollingEnabled="false"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
-            tools:listitem="@layout/single_attendance_layout" />
-    </androidx.core.widget.NestedScrollView>
-
-    <Button
-        android:id="@+id/submitbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="650dp"
-        android:text="S u b m i t"
-
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="0.0"
+        app:spanCount="2"
+        tools:listitem="@layout/activity_card_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,28 +19,26 @@ import com.example.schoolmanagementsystem.adapters.Adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectWorkActivity extends AppCompatActivity {
-
-    Button /*upload,fetch,*/profile_btn,settings_btn;
+public class GradesActivity extends AppCompatActivity {
+    Button profile_btn,settings_btn;
     private List<Model> modelList;
     RecyclerView RV;
     Adapter adapter;
     Intent intentprofile,intentsettings;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject_work);
-       /* upload = findViewById(R.id.upload);
-        fetch = findViewById(R.id.fetch);*/
-
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_grades);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
         modelList = new ArrayList<>();
-        modelList.add(new Model(R.drawable.material, EditMaterial.class,"Subject Material"));
-        modelList.add(new Model(R.drawable.a_attend, AttendanceActivity.class,"Attendance"));
-        modelList.add(new Model(R.drawable.a_grades, GradesActivity.class,"Grades"));
-        modelList.add(new Model(R.drawable.assignment_kbeer, EditAssignment.class,"Assignment"));
-        modelList.add(new Model(R.drawable.generateexam, student_home_page.class,"Generate Exam"));
-        modelList.add(new Model(R.drawable.announcement, login_page.class,"Announcements"));
+        modelList.add(new Model(R.drawable.a_grades, SelectGradesInfoView.class,"View Grades"));
+        modelList.add(new Model(R.drawable.a_grades, SelectGradesInfo.class,"Enter Grades"));
+
 
         //recyclerView
         RV = findViewById(R.id.id_recyclerview);
@@ -50,7 +52,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         settings_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentsettings = new Intent(SubjectWorkActivity.this, settings.class);
+                intentsettings = new Intent(GradesActivity.this, settings.class);
                 startActivity(intentsettings);
             }
         });
@@ -60,7 +62,7 @@ public class SubjectWorkActivity extends AppCompatActivity {
         profile_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intentprofile = new Intent(SubjectWorkActivity.this, profile.class);
+                intentprofile = new Intent(GradesActivity.this, profile.class);
                 startActivity(intentprofile);
             }
         });

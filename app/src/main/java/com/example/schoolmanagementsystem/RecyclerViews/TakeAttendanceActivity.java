@@ -1,4 +1,4 @@
-package com.example.schoolmanagementsystem;
+package com.example.schoolmanagementsystem.RecyclerViews;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -12,10 +12,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.schoolmanagementsystem.Models.Student;
+import com.example.schoolmanagementsystem.R;
 import com.example.schoolmanagementsystem.adapters.TakeAttendanceAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,9 +30,7 @@ import java.util.List;
 public class TakeAttendanceActivity extends AppCompatActivity {
     private  String intentClass,intentYear,intentDate;
     private DatabaseReference studentRef,yearRef,classRef,attendanceRef,presentRef,absentRef;
-    private String dept,batch;
     private List<Student> studentList=new ArrayList<>();
-    private ListView listView;
     private RecyclerView studentRV;
     private TakeAttendanceAdapter takeAttendanceAdapter;
     private Button submitBtn;

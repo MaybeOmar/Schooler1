@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.schoolmanagementsystem.Models.Student;
 import com.example.schoolmanagementsystem.R;
-import com.example.schoolmanagementsystem.TakeAttendanceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
