@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.schoolmanagementsystem.RecyclerViews.TakeAttendanceActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -173,14 +174,32 @@ public class SelectAttendInfoActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 date = dateET.getText().toString();
-                if (SelectedYear != null && !SelectedYear.equals("Select Education Year") && SelectedClass != null && !SelectedClass.equals("Select Classroom") && !date.isEmpty()) {
-                    Intent intent = new Intent(SelectAttendInfoActivity.this, TakeAttendanceActivity.class);
-                    intent.putExtra("eduYear", SelectedYear);
-                    intent.putExtra("class", SelectedClass);
-                    intent.putExtra("DATE", date);
-                    startActivity(intent);
-                }
+                DatabaseReference attendanceRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(SelectedYear).child("Classes").child(SelectedClass).child("Attendance").child(date);
+
+                attendanceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            Toast.makeText(SelectAttendInfoActivity.this , "Date already saved", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (SelectedYear != null && !SelectedYear.equals("Select Education Year") && SelectedClass != null && !SelectedClass.equals("Select Classroom") && !date.isEmpty()) {
+                                Intent intent = new Intent(SelectAttendInfoActivity.this, TakeAttendanceActivity.class);
+                                intent.putExtra("eduYear", SelectedYear);
+                                intent.putExtra("class", SelectedClass);
+                                intent.putExtra("DATE", date);
+                                startActivity(intent);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle errors
+                    }
+                });
+
             }
         });
     }
