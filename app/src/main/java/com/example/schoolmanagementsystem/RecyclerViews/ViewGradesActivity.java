@@ -2,6 +2,7 @@ package com.example.schoolmanagementsystem.RecyclerViews;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -12,8 +13,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.schoolmanagementsystem.EditGradesActivity;
 import com.example.schoolmanagementsystem.Models.StudentGrade;
 import com.example.schoolmanagementsystem.R;
+import com.example.schoolmanagementsystem.SelectGradesInfoView;
 import com.example.schoolmanagementsystem.adapters.ViewGradesAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,15 +27,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewGradesActivity extends AppCompatActivity {
+public class ViewGradesActivity extends AppCompatActivity implements ViewGradesAdapter.GradeUpdateListener{
     private  String intentClass,intentYear,intentExam, intentSubject;
     private DatabaseReference studentRef, gradesRef;
     private List<String> gradesList = new ArrayList<>();
     private List<String> studentIds = new ArrayList<>();
-    List<StudentGrade> studentGrades = new ArrayList<>();
+    private List<StudentGrade> studentGrades = new ArrayList<>();
     private RecyclerView studentRV;
     private ViewGradesAdapter viewGradesAdapter;
-    private String studentId;
+    private Button editBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +51,13 @@ public class ViewGradesActivity extends AppCompatActivity {
         intentYear=intent.getStringExtra("eduYear");
         intentExam=intent.getStringExtra("exam");
         intentSubject=intent.getStringExtra("subject");
+        /*editBtn = findViewById(R.id.editbtn);*/
         studentRV =findViewById(R.id.studentRV);
         studentRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intentYear).child("Classes").child(intentClass).child("Students");
 
         gradesRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intentYear).child("Classes").child(intentClass).child("Grades").child(intentExam).child("Subjects").child(intentSubject);
-        // Initialize adapter after fetching grades
-        viewGradesAdapter = new ViewGradesAdapter(studentGrades, ViewGradesActivity.this);
+
+        viewGradesAdapter = new ViewGradesAdapter(studentGrades, ViewGradesActivity.this,ViewGradesActivity.this);
         studentRV.setLayoutManager(new LinearLayoutManager(ViewGradesActivity.this));
         studentRV.setAdapter(viewGradesAdapter);
 
@@ -79,5 +83,22 @@ public class ViewGradesActivity extends AppCompatActivity {
         });
 
 
+        /*editBtn.setOnClickListener(v -> {
+                Intent intent1 = new Intent(ViewGradesActivity.this, EditGradesActivity.class);
+                intent1.putExtra("eduYear", intentYear);
+                intent1.putExtra("class", intentClass);
+                intent1.putExtra("exam", intentExam);
+                intent1.putExtra("subject", intentSubject);
+                startActivity(intent1);
+
+        });*/
+    }
+
+    @Override
+    public void onUpdateGrade(String studentId, String newGrade) {
+        DatabaseReference destinationRef = FirebaseDatabase.getInstance().getReference().child("Schooler").child("Education Years").child(intentYear).child("Classes").child(intentClass).child("Grades").child(intentExam).child("Subjects").child(intentSubject);
+        String studentID = studentId;
+        String grade = newGrade;
+        destinationRef.child(studentID).setValue(grade);
     }
 }
