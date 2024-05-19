@@ -44,7 +44,7 @@ public class parent_home_page extends AppCompatActivity {
         modelList.add(new Model(R.drawable.a_grades, blank.class,"Grades"));
         modelList.add(new Model(R.drawable.a_behavioral,blank.class,"Reports"));
         modelList.add(new Model(R.drawable.gradeprediction, blank.class,"Grade Prediction"));
-        modelList.add(new Model(R.drawable.a_exit_permits, blank.class,"Exit Permits"));
+        modelList.add(new Model(R.drawable.a_exit_permits, ExitPermitsActivity.class,"Exit Permits"));
         modelList.add(new Model(R.drawable.tuitionfees, blank.class,"Tuition Fees"));
         modelList.add(new Model(R.drawable.announcement, annoouncment_List.class,"Announcments"));
 
