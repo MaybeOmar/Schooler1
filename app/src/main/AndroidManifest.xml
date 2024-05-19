@@ -17,31 +17,19 @@
         android:theme="@style/Theme.SchoolManagementSystem"
         tools:targetApi="31">
         <activity
-            android:name=".EditGradesActivity"
+            android:name=".card_exit_permits"
             android:exported="false" />
         <activity
-            android:name=".SelectGradesInfoView"
+            android:name=".card_tuition_fees"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViews.ViewGradesActivity"
+            android:name=".add_exit_permits"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViews.EnterGradesActivity"
+            android:name=".add_tuition_fees"
             android:exported="false" />
         <activity
-            android:name=".SelectGradesInfo"
-            android:exported="false" />
-        <activity
-            android:name=".AddGrades"
-            android:exported="false" />
-        <activity
-            android:name=".GradesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ViewAttendanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ViewAttendanceInfo"
+            android:name=".exit_permits"
             android:exported="false" />
         <activity
             android:name=".AddClassActivity"
@@ -86,12 +74,6 @@
             android:name=".RecyclerViews.ViewAssignmentRV"
             android:exported="false" />
         <activity
-            android:name=".annoouncment_List"
-            android:exported="false" />
-        <activity
-            android:name=".add_announcement"
-            android:exported="false" />
-        <activity
             android:name=".ViewAssignments"
             android:exported="false" />
         <activity
@@ -122,28 +104,22 @@
             android:name=".Models.PDFInfo"
             android:exported="false" />
         <activity
+            android:name=".login_page"
+            android:exported="false" />
+        <activity
             android:name=".profile"
-            android:exported="false" />
-        <activity
-            android:name=".SelectAttendInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RecyclerViews.TakeAttendanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AttendanceActivity"
             android:exported="false" />
         <activity
             android:name=".settings"
             android:exported="false" />
         <activity
-            android:name=".admin_home_page"
+            android:name=".teacher_home_page"
             android:exported="false" />
         <activity
             android:name=".parent_home_page"
             android:exported="false" />
         <activity
-            android:name=".login_page"
+            android:name=".SelectEduYearSub"
             android:exported="false" />
         <activity
             android:name=".EditMaterial"
@@ -155,7 +131,7 @@
             android:name=".student_home_page"
             android:exported="false" />
         <activity
-            android:name=".teacher_home_page"
+            android:name=".admin_home_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
