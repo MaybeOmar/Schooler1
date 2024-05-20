@@ -39,18 +39,21 @@ public class settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        logout_btn=findViewById(R.id.logout_button);
+        logout_btn = findViewById(R.id.logout_button);
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
 
                 // Create an intent to return to the login page
-                intentlogin = new Intent(settings.this,login_page.class);
+                Intent intentlogin = new Intent(settings.this, login_page.class);
+                // Clear all the previous activities and start a new task with the login page
+                intentlogin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intentlogin);
-                finish(); // Finish the activity after starting the login page
+                finish(); // Finish the current activity
             }
         });
+
 
         back_btn=findViewById(R.id.back_button);
         back_btn.setOnClickListener(new View.OnClickListener() {
