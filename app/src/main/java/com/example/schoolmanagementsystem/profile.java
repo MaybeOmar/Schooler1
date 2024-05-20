@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 public class profile extends AppCompatActivity {
 
     Button back_btn;
-    TextView usernameTextView, emailTextView, phoneTextView;
+    TextView usernameTextView, emailTextView, phoneTextView,idTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class profile extends AppCompatActivity {
         usernameTextView = findViewById(R.id.username);
         emailTextView = findViewById(R.id.displayemail);
         phoneTextView = findViewById(R.id.displayphone);
+        idTextView = findViewById(R.id.displayuserid);
 
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -46,11 +47,13 @@ public class profile extends AppCompatActivity {
                     String fullName = documentSnapshot.getString("FullName");
                     String email = documentSnapshot.getString("Email");
                     String phoneNumber = documentSnapshot.getString("Phone number");
+                    String unique_ID= documentSnapshot.getString("Unique_ID");
 
 
                     usernameTextView.setText(fullName);
                     emailTextView.setText(email);
                     phoneTextView.setText(phoneNumber);
+                    idTextView.setText(unique_ID);
                 } else {
 
                 }
